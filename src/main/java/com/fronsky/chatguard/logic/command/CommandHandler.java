@@ -110,6 +110,9 @@ public abstract class CommandHandler implements TabCompleter, CommandExecutor, I
         if (player == null) {
             return true;
         }
+        if (player.hasPermission("chatguard.*")) {
+            return true;
+        }
         if (permission.isEmpty()) {
             logger.severe("Permissions haven't been set. Make sure to initialize them correctly.");
             return false;

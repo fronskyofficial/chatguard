@@ -5,3 +5,8 @@ api-version: 1.13
 authors: ['Fronsky Inc']
 website: 'https://fronsky.com/resources/chatguard'
 description: 'This is the Fronsky ChatGuard plugin.'
+
+commands:
+  chatguard:
+    aliases: ['chat', 'guard']
+    permission: 'chatguard.cmd.chatguard'
