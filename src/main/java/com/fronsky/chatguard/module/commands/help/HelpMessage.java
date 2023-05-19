@@ -1,9 +1,6 @@
 package com.fronsky.chatguard.module.commands.help;
 
-import net.md_5.bungee.api.chat.BaseComponent;
-import net.md_5.bungee.api.chat.ComponentBuilder;
-import net.md_5.bungee.api.chat.HoverEvent;
-import net.md_5.bungee.api.chat.TextComponent;
+import net.md_5.bungee.api.chat.*;
 import org.bukkit.ChatColor;
 import org.bukkit.entity.Player;
 
@@ -17,6 +14,7 @@ public class HelpMessage {
                 .create();
         TextComponent message = new TextComponent(ChatColor.GRAY + "- " + command);
         message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
+        message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
         player.spigot().sendMessage(message);
     }
 
@@ -29,6 +27,7 @@ public class HelpMessage {
                 .create();
         TextComponent message = new TextComponent(ChatColor.GRAY + "- " + command);
         message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
+        message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
         player.spigot().sendMessage(message);
     }
 
@@ -41,6 +40,7 @@ public class HelpMessage {
                 .create();
         TextComponent message = new TextComponent(ChatColor.GRAY + "- " + command);
         message.setHoverEvent(new HoverEvent(HoverEvent.Action.SHOW_TEXT, hoverText));
+        message.setClickEvent(new ClickEvent(ClickEvent.Action.RUN_COMMAND, command));
         player.spigot().sendMessage(message);
     }
 }
