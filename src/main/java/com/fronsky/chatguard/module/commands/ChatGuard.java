@@ -51,7 +51,7 @@ public class ChatGuard extends CommandHandler {
 
     public void help(@NonNull CommandSender sender, @NonNull String label, @NonNull String[] args) {
         sender.sendMessage(ChatColor.WHITE + "<---------------" + ChatColor.DARK_RED + "ChatGuard Help" + ChatColor.WHITE + "--------------->");
-        sender.sendMessage(ChatColor.YELLOW + "Aliases:" + ChatColor.GRAY + "/chat " + ChatColor.WHITE + ", " + ChatColor.GRAY + "/guard");
+        sender.sendMessage(ChatColor.YELLOW + "Aliases: " + ChatColor.GRAY + "/chat " + ChatColor.WHITE + ", " + ChatColor.GRAY + "/guard");
         sender.sendMessage(ChatColor.YELLOW + "Commands: ");
         if (sender instanceof Player) {
             Player player = (Player) sender;
