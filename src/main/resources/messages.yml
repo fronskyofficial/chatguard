@@ -2,7 +2,7 @@
 # Copyright 2023 Fronsky. All rights reserved.
 # https://www.fronsky.com/resources/chatguard/messages
 
-version: '1.0'
+version: '1.1'
 
 reload: '&aThe ChatGuard plugin has been reloaded!'
-wordWarning: '&cPlease refrain from using banned words, spamming or advertising in the chat. Failure to comply may result in consequences.'
+word_warning: '&cPlease refrain from using banned words, spamming or advertising in the chat. Failure to comply may result in consequences.'
