@@ -1,0 +1,7 @@
+name: '${plugin_name}'
+version: '${plugin_version}'
+main: '${plugin_main_class}'
+api-version: 1.13
+authors: ['Fronsky Inc']
+website: 'https://fronsky.com/resources/chatguard'
+description: 'This is the Fronsky ChatGuard plugin.'
