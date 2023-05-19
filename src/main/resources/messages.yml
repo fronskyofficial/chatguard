@@ -1,0 +1,8 @@
+# Official ChatGuard plugin messages.yml file.
+# Copyright 2023 Fronsky. All rights reserved.
+# https://www.fronsky.com/resources/chatguard/messages
+
+version: '1.0'
+
+reload: '&aThe ChatGuard plugin has been reloaded!'
+wordWarning: '&cPlease refrain from using banned words, spamming or advertising in the chat. Failure to comply may result in consequences.'

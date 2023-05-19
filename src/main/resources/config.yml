@@ -1,0 +1,10 @@
+# Official ChatGuard plugin config.yml file.
+# Copyright 2023 Fronsky. All rights reserved.
+# https://www.fronsky.com/resources/chatguard/config
+
+version: '1.2'
+
+censorInsteadOfBlock: true
+enableSpamWarningMessage: true
+bannedWords:
+  - 'bannedWordHere'
