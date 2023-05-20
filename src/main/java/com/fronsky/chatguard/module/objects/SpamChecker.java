@@ -11,12 +11,19 @@ public class SpamChecker {
     private static final Map<Player, Deque<String>> messages = new HashMap<>();
 
     public static boolean isSpamming(Player player, String message) {
-        if (player.hasPermission("chatguard.bypass")) {
+        if (player.hasPermission("chatguard.*") || player.hasPermission("chatguard.bypass")) {
             return false;
         }
 
         Deque<String> recentMessages = messages.getOrDefault(player, new LinkedList<>());
-        recentMessages.addFirst(message);
+
+        String processedMessage = message.trim().toLowerCase();
+
+        if (recentMessages.contains(processedMessage)) {
+            return true;
+        }
+
+        recentMessages.addFirst(processedMessage);
 
         if (recentMessages.size() > 10) {
             recentMessages.removeLast();
@@ -24,6 +31,6 @@ public class SpamChecker {
 
         messages.put(player, recentMessages);
 
-        return recentMessages.stream().filter(m -> m.equalsIgnoreCase(message)).count() > 1;
+        return false;
     }
 }
