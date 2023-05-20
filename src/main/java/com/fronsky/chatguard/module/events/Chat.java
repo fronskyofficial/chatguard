@@ -38,24 +38,21 @@ public class Chat implements Listener {
         StringBuilder newMessage = new StringBuilder();
 
         for (String word : message.split(" ")) {
-            if (bannedWords.contains(word)) {
-                if (player.hasPermission("chatguard.*")) {
-                    continue;
-                } else if(!player.hasPermission("chatguard.bypass")) {
-                    return;
+            if (containsBannedWord(word)) {
+                if (!(player.hasPermission("chatguard.*") || player.hasPermission("chatguard.bypass"))) {
+                    if (censorInsteadOfBlock) {
+                        word = word.replaceAll("(?i)" + word, "***");
+                    } else {
+                        dontSend = true;
+                        break;
+                    }
                 }
-
-                if (censorInsteadOfBlock) {
-                    newMessage.append(newMessage.length() == 0 ? "***" : " ***");
-                    continue;
-                }
-                dontSend = true;
-                continue;
             }
+
             newMessage.append(newMessage.length() == 0 ? word : " " + word);
         }
 
-        if (dontSend || SpamChecker.isSpamming(player, newMessage.toString())) {
+        if (dontSend || SpamChecker.isSpamming(player, message)) {
             event.setCancelled(true);
             if (data.getConfig().get().getBoolean("enable_spam_warning_message")) {
                 player.sendMessage(Language.WORD_WARNING.getMessageWithColor());
@@ -64,5 +61,14 @@ public class Chat implements Listener {
         }
 
         event.setMessage(newMessage.toString());
+    }
+
+    private boolean containsBannedWord(String word) {
+        for (String bannedWord : bannedWords) {
+            if (word.toLowerCase().contains(bannedWord.toLowerCase())) {
+                return true;
+            }
+        }
+        return false;
     }
 }
